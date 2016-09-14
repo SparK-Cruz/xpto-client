@@ -1,0 +1,29 @@
+<div class="customer-list">
+  <!--<customer-detail *ngIf="currentCustomer !== null" (onChange)="onChange($event)" [customer]="currentCustomer"></customer-detail>-->
+  <button (click)="onNew()">Novo</button>
+  <customer-filter (onChange)="onFilter($event)"></customer-filter>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>E-mail</th>
+        <th>Nascimento</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="error !== null">
+        <td colspan="4">{{error.message}}</td>
+      </tr>
+      <tr *ngFor="let customer of customers"
+        [class.selected]="customer === currentCustomer"
+        [class.disabled]="!customer.enabled"
+        (click)="onSelect(customer)">
+        <td>{{customer.name}}</td>
+        <td>{{customer.federalId}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.birth | date: 'dd/MM/yyyy'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,14 @@
+<section class="customer-filter">
+  <div class="field">
+    <label>Busca</label>
+    <input [(ngModel)]="model.search" (keyup)="onSubmit()" type="text" placeholder="Nome, CPF ou E-mail" />
+  </div>
+  <div class="field">
+    <label>Data Inicial</label>
+    <input [(ngModel)]="model.birthMin" (change)="onSubmit()" type="date" placeholder="01/01/1970">
+  </div>
+  <div class="field">
+    <label>Data Final</label>
+    <input [(ngModel)]="model.birthMax" (change)="onSubmit()" type="date" placeholder="99/99/9999">
+  </div>
+</section>

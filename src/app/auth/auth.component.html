@@ -1,0 +1,13 @@
+<section class="auth-form">
+  <div class="field">
+    <label>Usuário</label>
+    <input [(ngModel)]="model.username" type="text" placeholder="xpto" />
+  </div>
+  <div class="field">
+    <label>Senha</label>
+    <input [(ngModel)]="model.password" type="password" placeholder="xpto" />
+  </div>
+  <div class="actions">
+    <button (click)="onConfirm()">Entrar</button>
+  </div>
+</section>
