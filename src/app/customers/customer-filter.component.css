@@ -1,0 +1,9 @@
+section.customer-filter {
+  margin-bottom: 30px;
+}
+
+.form fieldset .form-group div .form-control {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 28px;
+}

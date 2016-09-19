@@ -25,7 +25,7 @@ export class AuthService {
     var options = this.options;
 
     return new Promise((resolve: Function, reject: Function) => {
-      self.http.post(url, login, options)
+      var req = self.http.post(url, login, options)
         .map(res => res.json())
         .subscribe(
           (data: any) => {
@@ -33,9 +33,9 @@ export class AuthService {
             resolve(data.auth);
           },
           (fail: any) => {
+            debugger;
             reject(fail);
-          }
-        );
+          });
     });
   }
 

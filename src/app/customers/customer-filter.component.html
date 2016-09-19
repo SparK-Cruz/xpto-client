@@ -1,14 +1,24 @@
 <section class="customer-filter">
-  <div class="field">
-    <label>Busca</label>
-    <input [(ngModel)]="model.search" (keyup)="onSubmit()" type="text" placeholder="Nome, CPF ou E-mail" />
-  </div>
-  <div class="field">
-    <label>Data Inicial</label>
-    <input [(ngModel)]="model.birthMin" (change)="onSubmit()" type="date" placeholder="01/01/1970">
-  </div>
-  <div class="field">
-    <label>Data Final</label>
-    <input [(ngModel)]="model.birthMax" (change)="onSubmit()" type="date" placeholder="99/99/9999">
+  <div class="form form-inline">
+    <fieldset>
+      <div class="form-group col-xs-6">
+        <label class="control-label">Busca</label>
+        <div>
+          <input [(ngModel)]="model.search" (keyup)="onSubmit()" type="text" placeholder="Nome, CPF ou E-mail" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group col-xs-3">
+        <label class="control-label">Data Inicial</label>
+        <div>
+          <input [(ngModel)]="model.birthMin" (change)="onSubmit()" type="date" placeholder="01/01/1970" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group col-xs-3">
+        <label class="control-label">Data Final</label>
+        <div>
+          <input [(ngModel)]="model.birthMax" (change)="onSubmit()" type="date" placeholder="99/99/9999" class="form-control" />
+        </div>
+      </div>
+    </fieldset>
   </div>
 </section>

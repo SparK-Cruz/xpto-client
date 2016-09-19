@@ -41,6 +41,30 @@ export class CustomerListComponent implements OnInit {
       });
   }
 
+  onChange(customer: Customer): void {
+    var found = false;
+    this.customers.forEach((item) => {
+      if(item.id !== customer.id)
+        return;
+
+      item.name = customer.name;
+      item.email = customer.email;
+      item.enabled = customer.enabled;
+      item.birth = customer.birth;
+      item.federalId = customer.federalId;
+      item.phone = customer.phone;
+
+      found = true;
+    });
+
+    if(!found)
+      this.customers.push(<Customer> Object.create(customer));
+  }
+
+  onCloseDetail(ok: boolean): void {
+    this.currentCustomer = null;
+  }
+
   loadCustomers(): void {
     var self = this;
     this.customerService.list()

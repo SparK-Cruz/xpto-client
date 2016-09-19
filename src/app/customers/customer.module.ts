@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { routing } from './customer.routing';
+import { AuthGuard } from '../backend/auth-guard.service';
 
 import { CustomerListComponent } from './customer-list.component';
 import { CustomerFilterComponent } from './customer-filter.component';
@@ -17,9 +17,8 @@ import { CustomerService } from './customer.service';
   ],
   imports: [
     CommonModule,
-    FormsModule,
-    routing
+    FormsModule
   ],
-  providers: [CustomerService]
+  providers: [CustomerService, AuthGuard]
 })
 export class CustomerModule { }

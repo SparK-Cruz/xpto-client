@@ -15,7 +15,17 @@ export class CustomerDetailComponent {
   @Output()
   onChange: EventEmitter<Customer> = new EventEmitter<Customer>();
 
+  @Output()
+  onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   message: string;
+
+  get title(){
+    if (this.customer.id == 0)
+      return "Novo cliente";
+
+    return "Editando cliente "+this.customer.name;
+  }
 
   onSave(customer: Customer): void {
     var self = this;
@@ -40,6 +50,10 @@ export class CustomerDetailComponent {
       .catch((fail: any) => {
         self.message = fail.message;
       });
+  }
+
+  onClickClose(): void {
+    this.onClose.emit(true);
   }
 
   constructor(private customerService: CustomerService) { }

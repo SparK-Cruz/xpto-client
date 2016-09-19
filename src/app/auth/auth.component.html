@@ -1,13 +1,24 @@
-<section class="auth-form">
-  <div class="field">
-    <label>Usuário</label>
-    <input [(ngModel)]="model.username" type="text" placeholder="xpto" />
-  </div>
-  <div class="field">
-    <label>Senha</label>
-    <input [(ngModel)]="model.password" type="password" placeholder="xpto" />
-  </div>
-  <div class="actions">
-    <button (click)="onConfirm()">Entrar</button>
-  </div>
-</section>
+<div id="auth-form" class="col-xs-12 col-md-6 col-sm-offset-3">
+  <section class="well">
+    <div class="form">
+      <fieldset>
+        <legend>Login</legend>
+        <div class="form-group">
+          <label class="control-label">Usuário</label>
+          <div>
+            <input [(ngModel)]="model.username" type="text" placeholder="xpto" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Senha</label>
+          <div>
+            <input [(ngModel)]="model.password" type="password" placeholder="xpto" class="form-control" />
+          </div>
+        </div>
+      </fieldset>
+      <div class="form-group actions">
+        <button (click)="onConfirm()" class="btn btn-primary">Entrar</button>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,30 +1,54 @@
-<section class="customer-detail">
-  <div class="field">
-    <label>Nome completo</label>
-    <input [(ngModel)]="customer.name" type="text" placeholder="Dino da Silva Sauro" required />
+<section class="customer-detail well">
+  <div class="form">
+    <fieldset>
+      <legend>{{title}}</legend>
+      <div class="form-group">
+        <label class="control-label">Nome completo</label>
+        <div>
+          <input [(ngModel)]="customer.name" type="text" placeholder="Dino da Silva Sauro" required class="form-control" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">CPF</label>
+        <div>
+          <input [(ngModel)]="customer.federalId" type="text" placeholder="00000000000" maxlength="11" minlength="11" required class="form-control"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">E-mail</label>
+        <div>
+          <input [(ngModel)]="customer.email" type="email" placeholder="dino@silvasauro.me" required class="form-control" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Telefone</label>
+        <div>
+          <input [(ngModel)]="customer.phone" type="text" placeholder="4199887766" minlength="10" maxlength="11" required class="form-control" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Data de Nascimento</label>
+        <div>
+          <input [(ngModel)]="customer.birth" type="date" placeholder="01/01/1970" required class="form-control" />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="togglebutton">
+          <label>
+            <input [(ngModel)]="customer.enabled" type="checkbox" checked />
+            Ativo?
+          </label>
+        </div>
+      </div>
+    </fieldset>
   </div>
-  <div class="field">
-    <label>CPF</label>
-    <input [(ngModel)]="customer.federalId" type="number" placeholder="12312312312" maxlength="11" minlength="11" required />
+  <div class="actions row">
+    <div class="col-xs-4 col-xs-offset-5">
+      <span>{{message}}</span>
+    </div>
+    <div class="col-xs-3">
+      <button (click)="onClickClose()" class="btn btn-default">Fechar</button>
+      <button (click)="onSave(customer)" class="btn btn-primary">Salvar</button>
+    </div>
   </div>
-  <div class="field">
-    <label>E-mail</label>
-    <input [(ngModel)]="customer.email" type="email" placeholder="dino@silvasauro.me" required />
-  </div>
-  <div class="field">
-    <label>Telefone</label>
-    <input [(ngModel)]="customer.phone" type="number" placeholder="4199887766" minlength="10" maxlength="11" required />
-  </div>
-  <div class="field">
-    <label>Data de Nascimento</label>
-    <input [(ngModel)]="customer.birth" type="date" placeholder="01/01/1970" required />
-  </div>
-  <div class="field inline">
-    <input [(ngModel)]="customer.enabled" type="checkbox" checked />
-    <label>Ativo?</label>
-  </div>
-  <div class="actions">
-    <button (click)="onSave(customer)">Salvar</button>
-  </div>
-  <p>{{message}}</p>
 </section>

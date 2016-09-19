@@ -1,8 +1,17 @@
 <div class="customer-list">
-  <!--<customer-detail *ngIf="currentCustomer !== null" (onChange)="onChange($event)" [customer]="currentCustomer"></customer-detail>-->
-  <button (click)="onNew()">Novo</button>
+
+  <div class="page-header">
+    <div class="row">
+      <h2 class="col-xs-10">Clientes</h2>
+      <button (click)="onNew()" class="col-xs-2 btn btn-primary btn-raised">Novo</button>
+    </div>
+  </div>
+
+  <customer-detail *ngIf="currentCustomer !== null" (onChange)="onChange($event)" [customer]="currentCustomer" (onClose)="onCloseDetail($event)"></customer-detail>
+
   <customer-filter (onChange)="onFilter($event)"></customer-filter>
-  <table>
+
+  <table class="table table-striped table-hover">
     <thead>
       <tr>
         <th>Nome</th>
@@ -15,8 +24,8 @@
       <tr *ngIf="error !== null">
         <td colspan="4">{{error.message}}</td>
       </tr>
-      <tr *ngFor="let customer of customers"
-        [class.selected]="customer === currentCustomer"
+      <tr class="customer-row" *ngFor="let customer of customers"
+        [class.selected]="customer.id === (currentCustomer || {id:0}).id"
         [class.disabled]="!customer.enabled"
         (click)="onSelect(customer)">
         <td>{{customer.name}}</td>

@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
     var self = this;
     this.redirectUrl = state.url;
     return new Observable((observer: any) => {
@@ -20,12 +20,12 @@ export class AuthGuard implements CanActivate {
           return true;
         })
         .catch((fail: any) => {
-          observer.next(false);
           self.router.navigate(['/auth']);
+          observer.next(false);
           return false;
         })
         .then((permitted: boolean) => {
-          observer.onCompleted();
+          observer.complete();
           return;
         });
     });

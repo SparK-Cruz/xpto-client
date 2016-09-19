@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NgModuleFactoryLoader } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, RouterOutletMap } from '@angular/router';
@@ -9,7 +9,8 @@ import { AuthGuard } from './backend/auth-guard.service';
 
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
-import { routing } from './app.routing';
+import { CustomerModule } from './customers/customer.module';
+import { routing, appRoutingProviders }  from './app.routing';
 
 import 'rxjs/add/operator/map';
 
@@ -22,7 +23,9 @@ import 'rxjs/add/operator/map';
     FormsModule,
     HttpModule,
     AuthModule,
-    RouterModule
+    CustomerModule,
+    RouterModule,
+    routing
   ],
   providers: [AuthGuard, Backend, RouterOutletMap],
   bootstrap: [AppComponent]
